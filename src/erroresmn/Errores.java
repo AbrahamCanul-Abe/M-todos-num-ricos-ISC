@@ -11,11 +11,30 @@ import java.util.Scanner;
  *
  * @author OuGi Abraham
  */
-public class ErroresMN {
 
-    /**
-     * @param args the command line arguments
-     */
+public class Errores {
+
+    private double Vreal;
+    private double Vaproximado;
+    double errorabsoluto,errorRelativo, errorPorcentual;
+    
+    public Errores (double Vreal, double Vaproximado){
+        this.Vreal=Vreal;
+        this.Vaproximado=Vaproximado;
+        
+    }
+    public double errorabsoluto (){
+        errorabsoluto=Vreal-Vaproximado;
+        return errorabsoluto;
+    }
+    public double errorrelativo (){
+        errorRelativo=errorabsoluto/Vreal;
+        return errorRelativo;
+    }
+    public double errorrelativoporcentual (){
+        errorPorcentual=errorrelativo ()*100;
+        return errorPorcentual;
+    } 
     public static void main(String[] args) {
         Scanner kb = new Scanner(System.in);
         System.out.println("Ingrese el valor real");
@@ -27,6 +46,5 @@ public class ErroresMN {
         System.out.println("Error absoluto: " + error.errorabsoluto());
         System.out.println("Error relativo: " + error.errorrelativo());
         System.out.println("Error relativo porcentual: " + error.errorrelativoporcentual());
-    }
-    
+}
 }
